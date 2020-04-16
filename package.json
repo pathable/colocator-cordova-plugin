@@ -1,0 +1,19 @@
+{
+  "name": "com.crowdconnected.colocator.cordovaplugin",
+  "version": "0.2.1",
+  "description": "Colocator Cordova Plugin",
+  "cordova": {
+    "id": "com.crowdconnected.colocator.cordovaplugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "CrowdConnected",
+  "license": "ISC"
+}
