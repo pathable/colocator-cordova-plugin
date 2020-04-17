@@ -13,9 +13,6 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-/**
- * This class echoes a string called from JavaScript.
- */
 public class ColocatorWrapper extends CordovaPlugin {
 
     @Override
