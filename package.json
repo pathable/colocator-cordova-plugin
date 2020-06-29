@@ -1,6 +1,6 @@
 {
   "name": "com.crowdconnected.colocator.cordovaplugin",
-  "version": "2.5.0",
+  "version": "2.7.0",
   "description": "Colocator Cordova Plugin",
   "cordova": {
     "id": "com.crowdconnected.colocator.cordovaplugin",
