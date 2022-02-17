@@ -1,8 +1,5 @@
 repositories {
-  maven {
-   url "http://maven.crowdconnected.net/"
-   allowInsecureProtocol = true
-  }
+  maven { url "https://maven2.crowdconnected.net/" }
   jcenter()
 }
 
