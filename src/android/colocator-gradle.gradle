@@ -1,10 +1,13 @@
 repositories {
-  maven { url "https://maven2.crowdconnected.net/" }
+  maven {
+    url "http://maven.crowdconnected.net/"
+    allowInsecureProtocol = true
+  }
   jcenter()
 }
 
 dependencies {
-  implementation 'net.crowdconnected.androidcolocator:colocator:2.7.0'
+  implementation 'net.crowdconnected.androidcolocator:colocator:2.7.7'
   implementation 'com.google.android.gms:play-services-gcm:9.6.1'
   implementation 'com.google.android.gms:play-services-location:9.6.1'
 }

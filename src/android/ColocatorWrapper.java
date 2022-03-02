@@ -3,6 +3,12 @@ package com.crowdconnected.colocator.cordovaplugin;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
 import net.crowdconnected.androidcolocator.CoLocator;
 import net.crowdconnected.androidcolocator.LocationCallback;
 import net.crowdconnected.androidcolocator.connector.LocationResponse;
@@ -202,8 +208,20 @@ public class ColocatorWrapper extends CordovaPlugin {
     public void setServiceNotificationInfo(String title, int icon, String channelId, CallbackContext callbackContext) {
         if (title != null) {
             if (CoLocator.instance() != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Context context = this.cordova.getActivity().getApplicationContext();
+
+                    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    notificationManager.deleteNotificationChannel(channelId);
+
+                    int importance = NotificationManager.IMPORTANCE_LOW;
+                    NotificationChannel channel = new NotificationChannel(channelId, "Colocator service notification channel", importance);
+                    channel.setDescription("Colocator service notification");
+                    context.getSystemService(NotificationManager.class).createNotificationChannel(channel);
+                }
+
                 CoLocator.setServiceNotificationInfo(this.cordova.getActivity().getApplication(), title, icon, channelId);
-                callbackContext.success("Foreground Service Started Successfully");
+                callbackContext.success("Foreground Service Notification Started Successfully");
             } else {
                 callbackContext.error("No instance of Colocator");
             }
